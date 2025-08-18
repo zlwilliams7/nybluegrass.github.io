@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NY Bluegrass — Coming Soon</title>
+
+    <!-- SEO / Social -->
+    <meta name="description" content="NYBluegrass.com — a hub for bluegrass jams, festivals, and community across New York. Launching soon." />
+    <meta property="og:title" content="NY Bluegrass — Coming Soon" />
+    <meta property="og:description" content="A hub for bluegrass jams, festivals, and community across New York. Launching soon." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta name="theme-color" content="#0ea5e9" />
+
+    <!-- Favicon (replace with your own) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230ea5e9'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='56' fill='white' font-family='Arial, sans-serif'%3ENY%3C/text%3E%3C/svg%3E" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Newsreader:opsz,wght@6..72,600&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+              display: ["Newsreader", "Georgia", "serif"],
+            },
+            backgroundImage: {
+              grid: "linear-gradient(to bottom right, rgba(14,165,233,.15), rgba(99,102,241,.15))",
+              noise: "url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\' viewBox=\'0 0 100 100\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'2\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.06\'/%3E%3C/svg%3E')",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Subtle animated gradient background */
+      .bg-animated {
+        background: radial-gradient(1200px 600px at 20% 0%, rgba(14, 165, 233, 0.25), transparent 60%),
+                    radial-gradient(800px 500px at 100% 20%, rgba(99, 102, 241, 0.25), transparent 60%),
+                    radial-gradient(900px 500px at 30% 100%, rgba(16, 185, 129, 0.18), transparent 60%);
+        animation: floatBg 18s ease-in-out infinite;
+      }
+      @keyframes floatBg {
+        0%, 100% { background-position: 0 0, 0 0, 0 0; }
+        50% { background-position: 10px -10px, -10px 10px, 6px -6px; }
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen bg-slate-950 text-slate-100 selection:bg-sky-300 selection:text-slate-900">
+    <main class="relative isolate min-h-screen overflow-hidden">
+      <!-- Decorative background -->
+      <div class="absolute inset-0 bg-animated"></div>
+      <div class="absolute inset-0 bg-noise mix-blend-overlay"></div>
+
+      <!-- Centered card -->
+      <section class="relative z-10 mx-auto flex min-h-screen max-w-3xl items-center px-6">
+        <div class="w-full rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur">
+          <header class="mb-8 flex items-center gap-4">
+            <!-- Logo mark (replace with your SVG if you have one) -->
+            <div class="grid size-12 place-items-center rounded-xl bg-sky-500/20 ring-1 ring-white/20">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 7c0-1.657 1.343-3 3-3h5l2 2h5c1.657 0 3 1.343 3 3v10c0 1.657-1.343 3-3 3H6c-1.657 0-3-1.343-3-3V7Z" stroke="currentColor" class="opacity-70" stroke-width="1.5" />
+                <path d="M7 14c2-1 3-3 5-3s3 2 5 3" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wide text-slate-300">NYBluegrass.com</p>
+              <h1 class="font-display text-3xl font-extrabold leading-tight tracking-tight">NY Bluegrass</h1>
+            </div>
+          </header>
+
+          <div class="prose prose-invert max-w-none">
+            <h2 class="font-display text-4xl font-bold leading-tight">We're tuning up. <span class="text-sky-300">Coming soon.</span></h2>
+            <p class="mt-4 text-slate-300">A clean, up‑to‑date hub for <strong>jams</strong>, <strong>festivals</strong>, and <strong>bluegrass community</strong> across New York. We're picking behind the scenes and will be live shortly.</p>
+          </div>
+
+          <!-- CTA Row -->
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="mailto:hello@nybluegrass.com" class="inline-flex items-center justify-center rounded-xl bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-white/10 transition hover:brightness-95 focus:outline-none focus:ring-2 focus:ring-sky-300">Email us</a>
+            <a href="https://instagram.com/nybluegrass" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white/90 ring-1 ring-inset ring-white/15 transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-sky-300">Instagram</a>
+            <a href="https://www.youtube.com/@nybluegrass" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-white/90 ring-1 ring-inset ring-white/15 transition hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-sky-300">YouTube</a>
+          </div>
+
+          <!-- Optional: quick sign-up (uses mailto; replace with real form later) -->
+          <form action="mailto:hello@nybluegrass.com" method="post" enctype="text/plain" class="mt-6 flex w-full max-w-lg gap-2">
+            <label for="email" class="sr-only">Email</label>
+            <input id="email" name="email" type="email" required placeholder="Get launch updates (email)" class="flex-1 rounded-xl border border-white/10 bg-black/30 px-4 py-2 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-300" />
+            <button type="submit" class="rounded-xl bg-white/90 px-4 py-2 text-sm font-semibold text-slate-900 ring-1 ring-inset ring-white/30 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-sky-300">Notify me</button>
+          </form>
+
+          <!-- Footer -->
+          <footer class="mt-10 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+            <p>© <span id="year"></span> NY Bluegrass • New York, NY</p>
+            <p>
+              <a href="mailto:hello@nybluegrass.com" class="underline underline-offset-4 hover:no-underline">hello@nybluegrass.com</a>
+              <span aria-hidden="true" class="px-2">•</span>
+              <a href="#" class="underline underline-offset-4 hover:no-underline">Media Kit</a>
+            </p>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Current year for footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

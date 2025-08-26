@@ -215,7 +215,7 @@ pre, code {
 
 .calendar-container {
   position: relative;
-  padding-bottom: 100%; /* maintains aspect ratio */
+  padding-bottom: 75%; /* maintains aspect ratio */
   height: 0;
   overflow: hidden;
   max-width: 100%;

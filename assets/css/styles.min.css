@@ -384,7 +384,7 @@ a.reversefootnote {
     color: var(--color-particles-text); }
 
 .particles-photo {
-  width: 75%;
+  width: 50%;
   border-radius: 0%;
   margin: auto;
   margin-bottom: 0.5em; }

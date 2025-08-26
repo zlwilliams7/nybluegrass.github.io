@@ -249,7 +249,10 @@ pre, code {
   border: none;
   border-radius: 8px; /* optional */
 }
-
+.col-12 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 .highlight {
   padding: 0 1em;

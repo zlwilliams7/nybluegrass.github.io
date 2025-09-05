@@ -141,6 +141,56 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
   </iframe>
 </div>
 
+<section id="events-list">
+  <h2>Upcoming Bluegrass Jams & Festivals</h2>
+
+  <!-- Filter Buttons -->
+  <div id="filter-buttons">
+    <button onclick="filterEvents('all')">Show All</button>
+    <button onclick="filterEvents('Jam')">Jam</button>
+    <button onclick="filterEvents('Session')">Session</button>
+    <button onclick="filterEvents('Festival')">Festival</button>
+    <button onclick="filterEvents('Show')">Show</button>
+  </div>
+
+  <!-- Event List -->
+  <ul id="event-list">
+    <li class="event Jam">
+      <strong>(Jam) Prospect Bar and Grill Bluegrass</strong><br>
+      <em>08/24/2025 • 16:00 – 19:00</em><br>
+      Location: Prospect Bar and Grill, 545 5th Ave, Brooklyn, NY 11215, USA<br>
+      Open jam
+    </li>
+
+    <li class="event Jam">
+      <strong>(Jam) Paddy Reilly's Bluegrass</strong><br>
+      <em>08/24/2025 • 17:00 – 20:00</em><br>
+      Location: Paddy Reilly's Music Bar, 519 2nd Ave, New York, NY 10016, USA<br>
+      Every Sunday, all welcome
+    </li>
+
+    <li class="event Session">
+      <strong>(Session) Monas Bluegrass</strong><br>
+      <em>08/25/2025 – 08/26/2025 • 21:00 – 00:00</em><br>
+      Location: Mona's, 224 Avenue B Unit 14, New York, NY 10009, USA<br>
+      Advanced. Band plays then jam follows.
+    </li>
+  </ul>
+</section>
+
+<script>
+function filterEvents(type) {
+  let events = document.querySelectorAll('#event-list .event');
+  events.forEach(event => {
+    if (type === 'all' || event.classList.contains(type)) {
+      event.style.display = 'block';
+    } else {
+      event.style.display = 'none';
+    }
+  });
+}
+</script>
+
 <!-- Contact Form Section -->
 <section id="contact" class="py-12 bg-white">
   <div class="container mx-auto">

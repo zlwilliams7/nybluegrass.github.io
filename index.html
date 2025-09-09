@@ -150,18 +150,10 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
     <button onclick="filterEvents('Jam')">Jam</button>
     <button onclick="filterEvents('Festival')">Festival</button>
     <button onclick="filterEvents('Show')">Show</button>
-    <button onclick="filterEvents('NYC')">NYC</button>
     <button onclick="filterEvents('Sunday')">Sunday</button>
     <button onclick="filterEvents('Monday')">Monday</button>    
     <button onclick="filterEvents('Saturday')">Saturday</button>
   </div>
-
-<div class="filter-buttons">
-  <button data-filter="all">All</button>
-  <button data-filter="jam">Jams</button>
-  <button data-filter="show">Shows</button>
-  <button data-filter="festival">Festivals</button>
-</div>
 
   <!-- Event List -->
   <ul id="event-list">
@@ -210,35 +202,16 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
 </section>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const list = document.querySelector(".event-list");
-    const items = Array.from(list.querySelectorAll("li"));
-
-    // Sort alphabetically
-    items.sort((a, b) =>
-      a.textContent.trim().localeCompare(b.textContent.trim())
-    );
-
-    list.innerHTML = "";
-    items.forEach(item => list.appendChild(item));
-
-    // Filtering
-    const buttons = document.querySelectorAll(".filter-buttons button");
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        const filter = button.getAttribute("data-filter");
-        
-        items.forEach(item => {
-          if (filter === "all" || item.classList.contains(filter)) {
-            item.style.display = "list-item";
-          } else {
-            item.style.display = "none";
-          }
-        });
-      });
-    });
+function filterEvents(category) {
+  let events = document.querySelectorAll('#event-list .event');
+  events.forEach(event => {
+    if (category === 'all' || event.classList.contains(category)) {
+      event.style.display = 'block';
+    } else {
+      event.style.display = 'none';
+    }
   });
+}
 </script>
 
 <!-- Contact Form Section -->

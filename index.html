@@ -150,24 +150,30 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
     <button onclick="filterEvents('Jam')">Jam</button>
     <button onclick="filterEvents('Festival')">Festival</button>
     <button onclick="filterEvents('Show')">Show</button>
+    <button onclick="filterEvents('NYC')">Show</button>
+    <button onclick="filterEvents('Sunday')">Show</button>
+    <button onclick="filterEvents('Monday')">Show</button>    
+    <button onclick="filterEvents('Saturday')">Show</button>
+
+
   </div>
 
   <!-- Event List -->
   <ul id="event-list">
-    <li class="event Jam">
+    <li class="event Jam NYC Sunday">
       <strong>(Jam) Prospect Bar and Grill Bluegrass</strong><br>
       <em>Every Sunday 16:00 – 19:00</em><br>
       Location: Prospect Bar and Grill, 545 5th Ave, Brooklyn, NY 11215, USA<br>
       Join us for a monthly Brooklyn bluegrass jam at Prospect Bar & Grill! This acoustic music circle welcomes musicians of all skill levels to play traditional and contemporary bluegrass, folk, and acoustic tunes. We focus on music as an oral tradition—no screens or sheet music—and encourage easy-to-learn songs that keep the jam flowing. All ages and backgrounds are welcome, and we ask that you respect the host, venue staff, and fellow musicians. Please order through the wait staff, tip generously, and keep personal items out of the circle and exit areas. Come enjoy live acoustic music in Brooklyn and connect with the local music community!
     </li>
 
-    <li class="event Jam">
+    <li class="event Jam NYC Saturday">
       <strong>(Jam) Tones Bluegrass Jam at Sunnys Bar</strong><br>
       <em>Every Saturday 20:00 – 00:00 (Except Summer Sundays)</em><br>
       Location: Sunny's Bar, 253 Conover St, Brooklyn, NY 11231, USA <br>
       Sunny’s Bluegrass Jam in Red Hook, Brooklyn is a long-standing acoustic music tradition featuring bluegrass, folk, and Americana tunes. The jam welcomes musicians of all skill levels and runs every Saturday from 8 PM to midnight, except in summer when it meets Sundays from 3–6 PM. Known for its community-driven vibe, this weekly session is perfect for learning, sharing, and enjoying live acoustic bluegrass music. Join local musicians and fans for an authentic Brooklyn bluegrass experience at Sunny’s!    </li>
 
-    <li class="event Jam">
+    <li class="event Jam NYC Sunday">
       <strong>(Jam) Paddy Reilly's Bluegrass</strong><br>
       <em>Every Sunday • 17:00 – 20:00</em><br>
       Location: Paddy Reilly's Music Bar, 519 2nd Ave, New York, NY 10016, USA<br>
@@ -181,7 +187,7 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
       Experience the revival of the beloved Oldtone Music Festival, returning to Cool Whisper Farm in Hillsdale, NY, from September 4–7, 2025. This family-friendly event celebrates roots music traditions, including bluegrass, old-time, Cajun, swing, and folk. Enjoy performances from over 25 artists, including Los Texmaniacs, The Deslondes, JP Harris, and more. The festival offers a unique blend of live music, workshops, contra and square dancing, and late-night jam sessions. With its motto, “Participation is Preservation,” Oldtone emphasizes community involvement and the preservation of musical heritage. Join us for a weekend of music, culture, and camaraderie in the heart of the Hudson Valley.
     </li>
 
-    <li class="event Jam">
+    <li class="event Jam NYC Monday">
       <strong>(Jam) Monas Bluegrass</strong><br>
       <em>Every Monday • 21:00 – 00:00</em><br>
       Location: Mona's, 224 Avenue B Unit 14, New York, NY 10009, USA<br>
@@ -197,14 +203,16 @@ Don’t miss Billy Strings live at the Prudential Center. The Grammy Award-winni
 </section>
 
 <script>
-function filterEvents(type) {
+function filterEvents(type, region, day) {
   let events = document.querySelectorAll('#event-list .event');
   events.forEach(event => {
-    if (type === 'all' || event.classList.contains(type)) {
-      event.style.display = 'block';
-    } else {
-      event.style.display = 'none';
-    }
+    let match = true;
+
+    if (type !== 'all' && !event.classList.contains(type)) match = false;
+    if (region !== 'all' && !event.classList.contains(region)) match = false;
+    if (day !== 'all' && !event.classList.contains(day)) match = false;
+
+    event.style.display = match ? 'block' : 'none';
   });
 }
 </script>

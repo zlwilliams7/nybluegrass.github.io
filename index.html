@@ -154,8 +154,6 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
     <button onclick="filterEvents('Sunday')">Sunday</button>
     <button onclick="filterEvents('Monday')">Monday</button>    
     <button onclick="filterEvents('Saturday')">Saturday</button>
-
-
   </div>
 
   <!-- Event List -->
@@ -171,7 +169,8 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
       <strong>(Jam) Tones Bluegrass Jam at Sunnys Bar</strong><br>
       <em>Every Saturday 20:00 – 00:00 (Except Summer Sundays)</em><br>
       Location: Sunny's Bar, 253 Conover St, Brooklyn, NY 11231, USA <br>
-      Sunny’s Bluegrass Jam in Red Hook, Brooklyn is a long-standing acoustic music tradition featuring bluegrass, folk, and Americana tunes. The jam welcomes musicians of all skill levels and runs every Saturday from 8 PM to midnight, except in summer when it meets Sundays from 3–6 PM. Known for its community-driven vibe, this weekly session is perfect for learning, sharing, and enjoying live acoustic bluegrass music. Join local musicians and fans for an authentic Brooklyn bluegrass experience at Sunny’s!    </li>
+      Sunny’s Bluegrass Jam in Red Hook, Brooklyn is a long-standing acoustic music tradition featuring bluegrass, folk, and Americana tunes. The jam welcomes musicians of all skill levels and runs every Saturday from 8 PM to midnight, except in summer when it meets Sundays from 3–6 PM. Known for its community-driven vibe, this weekly session is perfect for learning, sharing, and enjoying live acoustic bluegrass music. Join local musicians and fans for an authentic Brooklyn bluegrass experience at Sunny’s!
+    </li>
 
     <li class="event Jam NYC Sunday">
       <strong>(Jam) Paddy Reilly's Bluegrass</strong><br>
@@ -191,28 +190,27 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
       <strong>(Jam) Monas Bluegrass</strong><br>
       <em>Every Monday • 21:00 – 00:00</em><br>
       Location: Mona's, 224 Avenue B Unit 14, New York, NY 10009, USA<br>
-     Mona’s Bluegrass Session in Manhattan is an advanced acoustic jam for seasoned musicians and experienced players. The evening kicks off with a house band set, setting the tone with tight, high-level bluegrass and folk tunes, before opening the floor to the jam. This session emphasizes musical skill, improvisation, and collaboration, welcoming those ready to dive into more challenging arrangements. All participants are asked to respect the host, house band, and fellow musicians. Come join Brooklyn’s advanced bluegrass community for a night of live acoustic music!
+      Mona’s Bluegrass Session in Manhattan is an advanced acoustic jam for seasoned musicians and experienced players. The evening kicks off with a house band set, setting the tone with tight, high-level bluegrass and folk tunes, before opening the floor to the jam. This session emphasizes musical skill, improvisation, and collaboration, welcoming those ready to dive into more challenging arrangements. All participants are asked to respect the host, house band, and fellow musicians. Come join Brooklyn’s advanced bluegrass community for a night of live acoustic music!
     </li>
 
     <li class="event Show">
       <strong>(Show) Billy Strings</strong><br>
       <em>11/14/25-11/15/25 • 19:30 – 22:30</em><br>
       Location: Prudential Center, 25 Lafayette St, Newark, NJ 07102, USA<br>
-Don’t miss Billy Strings live at the Prudential Center. The Grammy Award-winning guitarist and bluegrass innovator is known for his high-energy concerts, virtuosic flatpicking, and genre-bending sound that blends bluegrass, rock, jam band improvisation, and Americana. Fans can expect two unforgettable nights of live music in New Jersey, featuring crowd favorites, deep jams, and songs from his latest album. Secure your tickets now for one of the most anticipated bluegrass concerts of 2025!    </li>
+      Don’t miss Billy Strings live at the Prudential Center. The Grammy Award-winning guitarist and bluegrass innovator is known for his high-energy concerts, virtuosic flatpicking, and genre-bending sound that blends bluegrass, rock, jam band improvisation, and Americana. Fans can expect two unforgettable nights of live music in New Jersey, featuring crowd favorites, deep jams, and songs from his latest album. Secure your tickets now for one of the most anticipated bluegrass concerts of 2025!
+    </li>
   </ul>
 </section>
 
 <script>
-function filterEvents(type, region, day) {
+function filterEvents(category) {
   let events = document.querySelectorAll('#event-list .event');
   events.forEach(event => {
-    let match = true;
-
-    if (type !== 'all' && !event.classList.contains(type)) match = false;
-    if (region !== 'all' && !event.classList.contains(region)) match = false;
-    if (day !== 'all' && !event.classList.contains(day)) match = false;
-
-    event.style.display = match ? 'block' : 'none';
+    if (category === 'all' || event.classList.contains(category)) {
+      event.style.display = 'block';
+    } else {
+      event.style.display = 'none';
+    }
   });
 }
 </script>
@@ -257,6 +255,22 @@ function filterEvents(type, region, day) {
   <script src="assets/js/particles.min.js"></script>
   <script src="assets/js/main.js"></script>
   
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const list = document.querySelector(".event-list");
+    const items = Array.from(list.querySelectorAll("li"));
+
+    items.sort((a, b) =>
+      a.textContent.trim().localeCompare(b.textContent.trim())
+    );
+
+    // Clear and re-append in sorted order
+    list.innerHTML = "";
+    items.forEach(item => list.appendChild(item));
+  });
+</script>
+
 </body>
 
 </html>

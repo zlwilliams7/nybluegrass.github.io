@@ -415,20 +415,19 @@ renderJams(jamData);
 
 
 <!-- Contact Form Section -->
-<section id="contact" class="py-12 bg-white">
+<section id="contact" class="py-12" style="background-color: transparent;">
   <div class="w-full md:max-w-4xl mx-auto px-4">
     
-    <h1 class="text-3xl font-bold mb-6">Submit a Jam, Show, or Festival</h1>
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Submit a Jam, Show, or Festival</h1>
     
     <div class="form-container" style="
         width: 100%; 
         overflow: hidden; 
         border-radius: 1.5rem; 
-        border: 1px solid #e5e7eb !important; 
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        background-color: transparent !important;
-        -webkit-overflow-scrolling: touch;
-        box-sizing: border-box;">
+        border: 1px solid #e5e7eb; 
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        background-color: white; /* We put the white background ONLY inside the rounded box */
+        -webkit-overflow-scrolling: touch;">
         
       <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLScBodAMnwv3utwRKnB6hjLnWsamgIxsdNNa28F1VwUXAwD4MA/viewform?embedded=true" 
@@ -437,7 +436,7 @@ renderJams(jamData);
         frameborder="0" 
         marginheight="0" 
         marginwidth="0"
-        style="display: block; border: none !important; outline: none !important; background: transparent !important;">
+        style="display: block; border: none !important;">
         Loading…
       </iframe>
     </div>

@@ -389,6 +389,22 @@ function filterDay(day) {
 renderJams(jamData);
 </script>
 </main>
+
+<section class="py-12 bg-blue-50 text-center">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold mb-4">Keep the Jams Rolling</h2>
+    <p class="text-gray-600 mb-6 max-w-xl mx-auto">
+      This directory is a labor of love. If it helped you find a jam tonight, consider tossing a few bucks in the virtual tip jar to help cover site hosting and maintenance.
+    </p>
+    <div class="flex justify-center gap-4">
+      <a href="https://venmo.com/otherzachwilliams" target="_blank" 
+         class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+         Tip via Venmo (@otherzachwilliams)
+      </a>
+    </div>
+  </div>
+</section>
+        
   <footer>
   <small>&copy; <time datetime="2026-04-28T10:09:40+01:00">2026</time>
     New York Bluegrass - All rights reserved.</small>
@@ -409,5 +425,31 @@ renderJams(jamData);
 
 
 </body>
+<a href="https://venmo.com/otherzachwilliams" target="_blank" id="tip-jar">
+  <span class="tip-icon">🎻</span> Tip the Jam Jar
+</a>
 
+<style>
+  #tip-jar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3d95ce; /* Venmo Blue */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #tip-jar:hover {
+    transform: scale(1.05);
+    background-color: #2c7bb3;
+  }
+</style>
 </html>

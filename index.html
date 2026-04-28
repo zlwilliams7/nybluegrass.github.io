@@ -147,21 +147,25 @@
 
 
 <style>
-  /* Container to keep it responsive */
-  .calendar-container {
-    position: relative;
-    padding-bottom: 75%; /* Aspect ratio for desktop */
-    height: 0;
-    overflow: hidden;
-  }
-  .calendar-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #777;
-  }
+  /* Container to keep it responsive AND rounded */
+.calendar-container {
+  position: relative;
+  padding-bottom: 75%; /* Aspect ratio for desktop */
+  height: 0;
+  overflow: hidden; /* CRITICAL: This clips the sharp corners of the iframe */
+  border-radius: 1.5rem; /* Matches your jam-card roundness */
+  border: 1px solid #e5e7eb; /* Soft border */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+.calendar-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Removed the default ugly border */
+}
 
   /* Desktop Version: Show Month View */
   .cal-desktop { display: block; }

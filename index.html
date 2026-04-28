@@ -193,44 +193,8 @@
     Click here to add this calendar to your phone
   </a>
 </p>
-    <section style="padding: 3rem 1rem; background-color: #f0f7ff; text-align: center; border-radius: 1.5rem; margin: 2rem 0;">
-  <div style="max-width: 800px; margin: 0 auto;">
-    <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937; margin-bottom: 1rem;">Keep the Jams Rolling</h2>
+        
     
-    <p style="color: #4b5563; margin-bottom: 1.5rem; line-height: 1.6;">
-      This directory is a labor of love. If it helped you find a tune tonight, consider tossing a few bucks in the virtual tip jar to help cover site hosting and maintenance.
-    </p>
-
-    <div style="display: flex; justify-content: center;">
-      <a href="https://venmo.com/otherzachwilliams" target="_blank" 
-         style="display: inline-block; background-color: #3d95ce; color: white; padding: 12px 32px; border-radius: 12px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.2s;">
-         Tip via Venmo (@otherzachwilliams)
-      </a>
-    </div>
-  </div>
-</section>
-    
-<!-- Contact Form Section -->
-<section id="contact" class="py-12 bg-white">
-  <div class="w-full md:max-w-4xl mx-auto px-0 md:px-4">
-    
-    <h1 class="text-3xl font-bold mb-6 px-4">Submit a Jam, Show, Festival</h1>
-    
-    <div class="form-container" style="width: 100%; -webkit-overflow-scrolling: touch;">
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLScBodAMnwv3utwRKnB6hjLnWsamgIxsdNNa28F1VwUXAwD4MA/viewform?embedded=true" 
-        width="100%" 
-        height="900" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0"
-        style="display: block;">
-        Loading…
-      </iframe>
-    </div>
-    
-  </div>
-</section>
 <section id="events-list" class="py-12 bg-gray-50">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold mb-8 text-center text-gray-800 border-b-2 border-blue-500 inline-block mx-auto pb-2">NYC Jam Directory</h2>
@@ -248,7 +212,7 @@
       </div>
 
       <div class="w-full md:w-80">
-        <input type="text" id="jamSearch" onkeyup="searchJams()" placeholder="Search venue, neighborhood, or skill..." 
+        <input type="text" id="jamSearch" onkeyup="searchJams()" placeholder="Search..." 
                class="w-full p-3 pl-5 border-2 border-gray-200 rounded-2xl shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
       </div>
     </div>
@@ -428,6 +392,51 @@ function filterDay(day) {
 renderJams(jamData);
 </script>
 </main>
+
+
+
+<!-- Contact Form Section -->
+<section id="contact" class="py-12 bg-white">
+  <div class="w-full md:max-w-4xl mx-auto px-0 md:px-4">
+    
+    <h1 class="text-3xl font-bold mb-6 px-4">Submit a Jam, Show, Festival</h1>
+    
+    <div class="form-container" style="width: 100%; -webkit-overflow-scrolling: touch;">
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLScBodAMnwv3utwRKnB6hjLnWsamgIxsdNNa28F1VwUXAwD4MA/viewform?embedded=true" 
+        width="100%" 
+        height="900" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="display: block;">
+        Loading…
+      </iframe>
+    </div>
+    
+  </div>
+</section>
+
+
+<section style="padding: 3rem 1rem; background-color: #f0f7ff; text-align: center; border-radius: 1.5rem; margin: 2rem 0;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h2 style="font-size: 1.5rem; font-weight: bold; color: #1f2937; margin-bottom: 1rem;">Keep the Jams Rolling</h2>
+    
+    <p style="color: #4b5563; margin-bottom: 1.5rem; line-height: 1.6;">
+      This directory is a labor of love. If it helped you find a tune tonight, consider tossing a few bucks in the virtual tip jar to help cover site hosting and maintenance.
+    </p>
+
+    <div style="display: flex; justify-content: center;">
+      <a href="https://venmo.com/otherzachwilliams" target="_blank" 
+         style="display: inline-block; background-color: #3d95ce; color: white; padding: 12px 32px; border-radius: 12px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.2s;">
+         Tip via Venmo (@otherzachwilliams)
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
         
   <footer>
   <small>&copy; <time datetime="2026-04-28T10:09:40+01:00">2026</time>
@@ -447,8 +456,6 @@ renderJams(jamData);
   <script src="assets/js/particles.min.js"></script>
   <script src="assets/js/main.js"></script>
 
-
-</body>
 <a href="venmo://paycharge?txn=pay&recipients=otherzachwilliams" target="_blank" id="tip-jar">
   <span class="tip-icon">🎻</span> Tip the Jam Jar
 </a>
@@ -476,4 +483,8 @@ renderJams(jamData);
     background-color: #2c7bb3;
   }
 </style>
+
+  
+</body>
+
 </html>

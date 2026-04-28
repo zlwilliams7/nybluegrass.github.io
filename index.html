@@ -192,65 +192,113 @@ This calendar lists bluegrass jams in NYC and the greater area. Times and detail
     
   </div>
 </section>
-    <section id="events-list">
-  <h2>Upcoming Bluegrass Jams & Festivals (work in progress)</h2>
+<section id="events-list" class="py-12 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-8 text-center">NYC Bluegrass Directory</h2>
 
-  <!-- Filter Buttons -->
-  <div id="filter-buttons">
-    <button onclick="filterEvents('all')">Show All</button>
-    <button onclick="filterEvents('Jam')">Jam</button>
-    <button onclick="filterEvents('Festival')">Festival</button>
-    <button onclick="filterEvents('Show')">Show</button>
-    <button onclick="filterEvents('Sunday')">Sunday</button>
-    <button onclick="filterEvents('Monday')">Monday</button>    
-    <button onclick="filterEvents('Saturday')">Saturday</button>
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
+      <div id="filter-buttons" class="flex flex-wrap justify-center gap-2">
+        <button onclick="filterType('all')" class="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-bold shadow-md" id="btn-all">All</button>
+        <button onclick="filterType('Jam')" class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-100 transition">Jams</button>
+        <button onclick="filterType('Festival')" class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-100 transition">Festivals</button>
+        <button onclick="filterDay('Sunday')" class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-100 transition">Sunday</button>
+        <button onclick="filterDay('Monday')" class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-100 transition">Monday</button>
+        <button onclick="filterDay('Saturday')" class="px-4 py-2 bg-white border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-100 transition">Saturday</button>
+      </div>
+
+      <input type="text" id="jamSearch" onkeyup="searchJams()" placeholder="Search venues or neighborhoods..." 
+             class="w-full md:w-64 p-3 border rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 outline-none">
+    </div>
+
+    <div id="event-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      </div>
   </div>
-
-  <!-- Event List -->
-  <ul id="event-list">
-    <li class="event Jam NYC Sunday">
-      <strong>(Jam) Prospect Bar and Grill Bluegrass</strong><br>
-      <em>Every Sunday 16:00 – 19:00</em><br>
-      Location: Prospect Bar and Grill, 545 5th Ave, Brooklyn, NY 11215, USA<br>
-      Join us for a monthly Brooklyn bluegrass jam at Prospect Bar & Grill! This acoustic music circle welcomes musicians of all skill levels to play traditional and contemporary bluegrass, folk, and acoustic tunes. We focus on music as an oral tradition—no screens or sheet music—and encourage easy-to-learn songs that keep the jam flowing. All ages and backgrounds are welcome, and we ask that you respect the host, venue staff, and fellow musicians. Please order through the wait staff, tip generously, and keep personal items out of the circle and exit areas. Come enjoy live acoustic music in Brooklyn and connect with the local music community!
-    </li>
-
-    <li class="event Jam NYC Saturday">
-      <strong>(Jam) Tones Bluegrass Jam at Sunnys Bar</strong><br>
-      <em>Every Saturday 20:00 – 00:00 (Except Summer Sundays)</em><br>
-      Location: Sunny's Bar, 253 Conover St, Brooklyn, NY 11231, USA <br>
-      Sunny’s Bluegrass Jam in Red Hook, Brooklyn is a long-standing acoustic music tradition featuring bluegrass, folk, and Americana tunes. The jam welcomes musicians of all skill levels and runs every Saturday from 8 PM to midnight, except in summer when it meets Sundays from 3–6 PM. Known for its community-driven vibe, this weekly session is perfect for learning, sharing, and enjoying live acoustic bluegrass music. Join local musicians and fans for an authentic Brooklyn bluegrass experience at Sunny’s!
-    </li>
-
-    <li class="event Jam NYC Sunday">
-      <strong>(Jam) Paddy Reilly's Bluegrass</strong><br>
-      <em>Every Sunday • 17:00 – 20:00</em><br>
-      Location: Paddy Reilly's Music Bar, 519 2nd Ave, New York, NY 10016, USA<br>
-      Every Sunday, all welcome
-    </li>
-
-    <li class="event Jam NYC Monday">
-      <strong>(Jam) Monas Bluegrass</strong><br>
-      <em>Every Monday • 21:00 – 00:00</em><br>
-      Location: Mona's, 224 Avenue B Unit 14, New York, NY 10009, USA<br>
-      Mona’s Bluegrass Session in Manhattan is an advanced acoustic jam for seasoned musicians and experienced players. The evening kicks off with a house band set, setting the tone with tight, high-level bluegrass and folk tunes, before opening the floor to the jam. This session emphasizes musical skill, improvisation, and collaboration, welcoming those ready to dive into more challenging arrangements. All participants are asked to respect the host, house band, and fellow musicians. Come join Brooklyn’s advanced bluegrass community for a night of live acoustic music!
-    </li>
-
-
-  </ul>
 </section>
 
 <script>
-function filterEvents(category) {
-  let events = document.querySelectorAll('#event-list .event');
-  events.forEach(event => {
-    if (category === 'all' || event.classList.contains(category)) {
-      event.style.display = 'block';
-    } else {
-      event.style.display = 'none';
-    }
-  });
+// 1. DATA CENTER: Add or edit your jams here!
+const jamData = [
+  {
+    title: "Prospect Bar and Grill Bluegrass",
+    type: "Jam",
+    day: "Sunday",
+    time: "16:00 – 19:00",
+    location: "Prospect Bar and Grill, 545 5th Ave, Brooklyn, NY 11215",
+    description: "Monthly Brooklyn bluegrass jam! Acoustic music circle for all skill levels. Traditional/contemporary bluegrass and folk.",
+    tags: ["NYC", "Brooklyn", "All Levels"]
+  },
+  {
+    title: "Tones Bluegrass Jam at Sunny's Bar",
+    type: "Jam",
+    day: "Saturday",
+    time: "20:00 – 00:00",
+    location: "Sunny's Bar, 253 Conover St, Brooklyn, NY 11231",
+    description: "Long-standing Red Hook tradition. Americana and folk tunes. Note: Summer Sundays 3–6 PM.",
+    tags: ["NYC", "Brooklyn", "Red Hook"]
+  },
+  {
+    title: "Paddy Reilly's Bluegrass",
+    type: "Jam",
+    day: "Sunday",
+    time: "17:00 – 20:00",
+    location: "Paddy Reilly's Music Bar, 519 2nd Ave, New York, NY 10016",
+    description: "Every Sunday, all welcome at this classic Manhattan spot.",
+    tags: ["NYC", "Manhattan", "All Welcome"]
+  },
+  {
+    title: "Mona's Bluegrass",
+    type: "Jam",
+    day: "Monday",
+    time: "21:00 – 00:00",
+    location: "Mona's, 224 Avenue B, New York, NY 10009",
+    description: "Advanced session. House band starts the night, followed by high-level improvisation and collaboration.",
+    tags: ["NYC", "Manhattan", "Advanced"]
+  }
+];
+
+// 2. DISPLAY LOGIC: This builds the HTML cards
+function renderJams(data) {
+  const grid = document.getElementById('event-grid');
+  grid.innerHTML = data.map(jam => `
+    <div class="jam-card bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-all">
+      <div class="flex justify-between items-start mb-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-2 py-1 rounded">${jam.type} • ${jam.day}</span>
+      </div>
+      <h3 class="text-xl font-bold text-gray-900 mb-1">${jam.title}</h3>
+      <p class="text-blue-500 font-medium text-sm mb-3">${jam.time}</p>
+      <p class="text-gray-700 text-sm mb-3"><strong>📍</strong> ${jam.location}</p>
+      <p class="text-gray-600 text-sm leading-relaxed">${jam.description}</p>
+    </div>
+  `).join('');
 }
+
+// 3. SEARCH & FILTER LOGIC
+function searchJams() {
+  const term = document.getElementById('jamSearch').value.toLowerCase();
+  const filtered = jamData.filter(j => 
+    j.title.toLowerCase().includes(term) || 
+    j.location.toLowerCase().includes(term) || 
+    j.description.toLowerCase().includes(term)
+  );
+  renderJams(filtered);
+}
+
+function filterType(type) {
+  if (type === 'all') {
+    renderJams(jamData);
+  } else {
+    const filtered = jamData.filter(j => j.type === type);
+    renderJams(filtered);
+  }
+}
+
+function filterDay(day) {
+  const filtered = jamData.filter(j => j.day === day);
+  renderJams(filtered);
+}
+
+// Initial Load
+renderJams(jamData);
 </script>
 </main>
   <footer>

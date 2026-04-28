@@ -325,28 +325,34 @@ function renderJams(data) {
   });
 
   grid.innerHTML = sortedData.map(jam => `
-    <div class="jam-card">
-      <div class="flex items-center gap-3 mb-5">
-        <span class="text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full badge-${jam.day}">
-          ${jam.day}
-        </span>
-        <span class="text-xs font-bold text-gray-400 uppercase tracking-tight">${jam.neighborhood}</span>
-      </div>
-      
-      <h3 class="text-2xl font-bold text-gray-900 mb-2 leading-tight">${jam.title}</h3>
-      <p class="text-blue-600 font-bold text-sm mb-6 flex items-center">
-        <span class="mr-2">🕒</span> ${jam.time}
-      </p>
-      
-      <div class="border-t border-gray-100 pt-6 mt-auto">
-        <p class="text-gray-800 text-sm mb-4 flex items-start gap-3">
-          <span class="text-lg opacity-50">📍</span> 
-          <span class="font-medium">${jam.location}</span>
-        </p>
-        <p class="text-gray-600 text-sm leading-relaxed">${jam.description}</p>
-      </div>
+  <div class="jam-card">
+    <div class="flex items-center gap-3 mb-5">
+      <span class="text-xs font-black uppercase tracking-widest px-3 py-1 rounded-full badge-${jam.day}">
+        ${jam.day}
+      </span>
+      <span class="text-xs font-bold text-gray-400 uppercase tracking-tight">${jam.neighborhood}</span>
     </div>
-  `).join('');
+    
+    <h3 class="text-2xl font-bold text-gray-900 mb-2 leading-tight">${jam.title}</h3>
+    <p class="text-blue-600 font-bold text-sm mb-6 flex items-center">
+      <span class="mr-2">🕒</span> ${jam.time}
+    </p>
+    
+    <div class="border-t border-gray-100 pt-6 mt-auto">
+      <p class="text-gray-800 text-sm mb-4 flex items-start gap-3">
+        <span class="text-lg opacity-50">📍</span> 
+        
+        <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(jam.location)}" 
+           target="_blank" 
+           class="font-medium hover:text-blue-600 hover:underline decoration-blue-500/30 underline-offset-4">
+          ${jam.location}
+        </a>
+
+      </p>
+      <p class="text-gray-600 text-sm leading-relaxed">${jam.description}</p>
+    </div>
+  </div>
+`).join('');
 }
 
 // 3. SEARCH & FILTER LOGIC

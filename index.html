@@ -416,11 +416,18 @@ renderJams(jamData);
 
 <!-- Contact Form Section -->
 <section id="contact" class="py-12 bg-white">
-  <div class="w-full md:max-w-4xl mx-auto px-0 md:px-4">
+  <div class="w-full md:max-w-4xl mx-auto px-4">
     
-    <h1 class="text-3xl font-bold mb-6 px-4">Submit a Jam, Show, Festival</h1>
+    <h1 class="text-3xl font-bold mb-6">Submit a Jam, Show, or Festival</h1>
     
-    <div class="form-container" style="width: 100%; -webkit-overflow-scrolling: touch;">
+    <div class="form-container" style="
+        width: 100%; 
+        overflow: hidden; 
+        border-radius: 1.5rem; 
+        border: 1px solid #e5e7eb; 
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        -webkit-overflow-scrolling: touch;">
+        
       <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLScBodAMnwv3utwRKnB6hjLnWsamgIxsdNNa28F1VwUXAwD4MA/viewform?embedded=true" 
         width="100%" 
@@ -428,14 +435,12 @@ renderJams(jamData);
         frameborder="0" 
         marginheight="0" 
         marginwidth="0"
-        style="display: block;">
+        style="display: block; border: none;">
         Loading…
       </iframe>
     </div>
-    
   </div>
 </section>
-
 
 <section style="padding: 3rem 1rem; background-color: #f0f7ff; text-align: center; border-radius: 1.5rem; margin: 2rem 0;">
   <div style="max-width: 800px; margin: 0 auto;">
@@ -445,12 +450,20 @@ renderJams(jamData);
       This directory is a labor of love. If it helped you find a tune tonight, consider tossing a few bucks in the virtual tip jar to help cover site hosting and maintenance.
     </p>
 
-    <div style="display: flex; justify-content: center;">
-      <a href="https://venmo.com/otherzachwilliams" target="_blank" 
-         style="display: inline-block; background-color: #3d95ce; color: white; padding: 12px 32px; border-radius: 12px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.2s;">
-         Tip via Venmo (@otherzachwilliams)
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+      
+      <a href="venmo://paycharge?txn=pay&recipients=otherzachwilliams" 
+         style="display: inline-block; background-color: #3d95ce; color: white; padding: 12px 28px; border-radius: 12px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.2s;">
+         📱 Open in Venmo App (Mobile)
       </a>
+
+      <a href="https://venmo.com/otherzachwilliams" target="_blank" 
+         style="display: inline-block; background-color: white; color: #3d95ce; border: 2px solid #3d95ce; padding: 10px 28px; border-radius: 12px; font-weight: bold; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.2s;">
+         💻 Venmo Website (Desktop)
+      </a>
+
     </div>
+    <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 1rem;">@otherzachwilliams</p>
   </div>
 </section>
 

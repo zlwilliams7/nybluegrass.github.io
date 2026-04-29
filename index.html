@@ -265,7 +265,21 @@
     transform: translateY(-4px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
+/* Add this to the bottom of your existing <style> block */
+.compact-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* This keeps it to exactly 3 lines */
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer; /* Makes people realize they can click it */
+}
 
+/* This class will be added when you click to "open" the card */
+.expanded {
+  display: block !important;
+  -webkit-line-clamp: none !important;
+}
   /* Specific Badge Colors */
   .badge-Monday    { background-color: #dbeafe; color: #1e40af; } /* Blue */
   .badge-Tuesday   { background-color: #dcfce7; color: #166534; } /* Green */
@@ -387,7 +401,9 @@ function renderJams(data) {
           ${jam.location}
         </a>
       </p>
-      <p class="text-gray-600 text-sm leading-relaxed">${jam.description}</p>
+      <p class="text-gray-600 text-sm compact-description" onclick="this.classList.toggle('expanded')">
+  ${jam.description}
+</p>
     </div>
   </div>
 `).join('');

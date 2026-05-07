@@ -265,20 +265,35 @@
     transform: translateY(-4px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
-/* Add this to the bottom of your existing <style> block */
 .compact-description {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* This keeps it to exactly 3 lines */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
   overflow: hidden;
   text-overflow: ellipsis;
-  cursor: pointer; /* Makes people realize they can click it */
+  cursor: pointer;
+  position: relative;
 }
 
-/* This class will be added when you click to "open" the card */
+/* Adds the "Read More" text below the paragraph */
+.compact-description::after {
+  content: "Read More ▼";
+  display: block;
+  font-weight: bold;
+  color: #3b82f6; /* Blue to look like a link */
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+/* When expanded, change the text to "Close" */
 .expanded {
   display: block !important;
   -webkit-line-clamp: none !important;
+}
+
+.expanded::after {
+  content: "Close ▲" !important;
+  color: #9ca3af !important; /* Gray when open */
 }
   /* Specific Badge Colors */
   .badge-Monday    { background-color: #dbeafe; color: #1e40af; } /* Blue */
